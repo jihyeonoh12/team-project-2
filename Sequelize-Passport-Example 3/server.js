@@ -29,4 +29,4 @@ db.sequelize.sync().then(function() {
   });
 });
 
-jane noh
+jane
