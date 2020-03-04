@@ -4,6 +4,22 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    dog_breed: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    dog_height: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    favorite_activiy: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    dog_age: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     id: {
       type: DataTypes.UUID,
       primaryKey: true,

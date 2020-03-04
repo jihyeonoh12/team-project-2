@@ -12,7 +12,7 @@ module.exports = function(app) {
     // if (req.query.user_id) {
     //   query.UserId = req.query.user_id;
     // }
-    console.log("helluuu")
+   
     console.log(req)
     console.log(res)
     
