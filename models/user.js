@@ -16,7 +16,14 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         required: true
       }, 
-      user_password: {
+      user_street: {
+        type: DataTypes.STRING,
+        required: true
+      }, 
+      user_city: {
+        type: DataTypes.STRING,
+        required: true
+      }, user_password: {
         type: DataTypes.STRING,
         required: true
       }, 
