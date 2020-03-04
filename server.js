@@ -8,7 +8,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -23,17 +23,19 @@ app.set("view engine", "handlebars");
 
 // Routes
 // require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+
 require("./routes/user-api-routes")(app);
-// require("./routes/doggo-api-routes")(app);
+require("./routes/doggo-api-routes")(app);
+require("./routes/htmlRoutes")(app);
 
-
-var syncOptions = { force: false };
+  //turn to true if changing the model- turn to false if model doesnt need changes
+var syncOptions = { force: false};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+  //turn to true if changing the model- turn to false if model doesnt need changes
+  syncOptions.force = false;
 }
 
 // Starting the server, syncing our models ------------------------------------/
