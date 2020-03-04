@@ -100,6 +100,7 @@ var handleFormSubmit = function(event) {
     API.saveUser(user).then(function() {
      var loggedIn = true
          window.localStorage.setItem("loggedIn", loggedIn )
+         window.localStorage.setItem("email", user.user_email)
          window.location.href = "/user";
 
         });
@@ -112,21 +113,10 @@ var handleFormSubmit = function(event) {
 
 
 
-  // $exampleText.val("");
-  // $exampleDescription.val("");
+
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-// var handleDeleteBtnClick = function() {
-//   var idToDelete = $(this)
-//     .parent()
-//     .attr("data-id");
 
-//   API.deleteExample(idToDelete).then(function() {
-//     refreshExamples();
-//   });
-// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

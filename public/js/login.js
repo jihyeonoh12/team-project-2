@@ -61,11 +61,11 @@ $submitBtn.on("click", function(e){
       if(res === null ){
      console.log("Not exsisting cause null" + res)
      $('#signUp').attr('style', "color: red")
-     
+     $("#small").html('NOT A USER')
          
       }else{
         console.log("im signed in because i returned an objext" + res)
-        window.location.href = "/profile";
+        window.location.href = "/user";
        }
      
        })

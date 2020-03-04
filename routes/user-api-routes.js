@@ -27,7 +27,7 @@ module.exports = function(app) {
         include: [db.Dog]
       }).then(function(dbUser) {
         console.log(dbUser)
-        res.json(dbUser);
+        res.json(dbUser); 
       });
     })
   
