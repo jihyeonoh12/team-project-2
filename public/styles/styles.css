@@ -5,8 +5,7 @@ html, body {
 
 body {
   background-color: #DDD;
-  background-image: url("background-2.jpg");
-  background-size: cover;
+
 }
 
 img {
@@ -134,3 +133,38 @@ p {
     padding: 0;
   }
 }
+
+/* Jane added for navbar */
+     body {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      font-family: 'Noto Sans', sans-serif;
+
+    }
+
+    nav {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 300;
+      color: #A58161;
+      background-color: #A58161;
+
+    }
+
+    .navbar {
+      background-color: white;
+      box-shadow: 0px 5px 17px rgba(0, 0, 0, 0.0836429);
+    }
+
+    .logo_title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      color: #A58161;
+      font-size: 1.5em;
+    }
+
+    button {
+      border-color: #A58161;
+      color: #A58161;
+    }
