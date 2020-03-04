@@ -6,16 +6,19 @@ var $submitBtn = $("#submit");
 var $userpassword = $("#user_password");
 var loggedIn = false
 
-      window.localStorage.setItem("loggedIn", loggedIn)
+     window.localStorage.setItem("loggedIn", loggedIn)
+
 function loginCheck(){
 if( loggedIn) {
   window.location.href = "/user";
 }
 else{
-  window.location.href = "/";
+  window.location.href = "/"; 
 }
 }
-loginCheck()
+// loginCheck()
+
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveUser: function(newUser) {
@@ -27,49 +30,50 @@ var API = {
       url: "api/user",
       data: JSON.stringify(newUser)
     });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
   }
+  // ,
+  // getExamples: function() {
+  //   return $.ajax({
+  //     url: "api/examples",
+  //     type: "GET"
+  //   });
+  // },
+  // deleteExample: function(id) {
+  //   return $.ajax({
+  //     url: "api/examples/" + id,
+  //     type: "DELETE"
+  //   });
+  // }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   API.getExamples().then(function(data) {
+//     var $examples = data.map(function(example) {
+//       var $a = $("<a>")
+//         .text(example.text)
+//         .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": example.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    // $exampleList.empty();
-    // $exampleList.append($examples);
-  });
-};
+//     // $exampleList.empty();
+//     // $exampleList.append($examples);
+//   });
+// };
 
 // create NEW user- Sign Up
 var handleFormSubmit = function(event) {
@@ -78,15 +82,19 @@ var handleFormSubmit = function(event) {
   var user = {
     username: $user.val().trim(),
     user_email: $useremail.val().trim(),
-    user_password: $userpassword.val().trim()
+    user_password: $userpassword.val().trim(),
+    user_street: $userpassword.val().trim(),
+    user_city: $userpassword.val().trim()
+  
   };
 
-
-  if (!(user.username && user.user_email && user.user_password)) {
-    alert("You must enter an example text and description!");
+  if (!(user.username && user.user_email && user.user_password && user.user_street && user.user_city)) {
+    alert("Please fill out all fields");
     return;
   };
+
   var data= {email: user.user_email};
+
   $.post("/api/users",data, function(res){
    if(res === null ){
     API.saveUser(user).then(function() {
@@ -94,16 +102,12 @@ var handleFormSubmit = function(event) {
          window.localStorage.setItem("loggedIn", loggedIn )
          window.location.href = "/user";
 
-     
-      
-      // window.localStorage.setItem("email", user.user_email)
-
-          // refreshUsers();
         });
       
-   }else{alert('already a thang')}
-    console.log(res+ "this is res on index.js")
-    
+   }else{
+     alert('Email is already in use')
+    }
+  
     })
 
 
@@ -114,15 +118,15 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+//   API.deleteExample(idToDelete).then(function() {
+//     refreshExamples();
+//   });
+// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

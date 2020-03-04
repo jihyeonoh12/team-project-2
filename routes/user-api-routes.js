@@ -3,21 +3,33 @@ var db = require("../models");
 module.exports = function(app) {
 
       
-    // app.get("/api/user", function(req, res) {
+    app.get("/api/users", function(req, res) {
   
-    //   // Here we add an "include" property to our options in our findAll query
-    //   // We set the value to an array of the models we want to include in a left outer join
-    //   // In this case, just db.Dog
-  
-    //   db.User.findAll({
+      // Here we add an "include" property to our options in our findAll query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.Dog
+      db.User.findAll({
 
-    //     include: [db.Dog]
-    //   }).then(function(dbUser) {
-    //     res.json(dbUser);
-    //   });
+        include: [db.Dog]
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
   
    
-    // });
+    });
+
+    app.get('/api/user', function(req, res){
+      console.log(JSON.stringify(req.body.user_email ) + "req.body")
+      db.User.findOne({
+        where: {
+          user_email: req.body.email
+        },
+        include: [db.Dog]
+      }).then(function(dbUser) {
+        console.log(dbUser)
+        res.json(dbUser);
+      });
+    })
   
     app.post("/api/users", function(req, res) {
       // console.log("helluuuu")
@@ -29,7 +41,7 @@ module.exports = function(app) {
         where: {
           user_email: req.body.email
         },
-        
+         
       }).then(function(dbUser) {
         console.log(dbUser)
         res.json(dbUser);
