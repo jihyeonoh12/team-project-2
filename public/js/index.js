@@ -1,19 +1,20 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $user = $("#user_name");
+var $useremail = $("#user_email");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $userpassword = $("#user_password");
+var loggedIn = false
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveUser: function(newUser) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/user",
+      data: JSON.stringify(newUser)
     });
   },
   getExamples: function() {
@@ -54,32 +55,40 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    // $exampleList.empty();
+    // $exampleList.append($examples);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// create NEW user- Sign Up
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var user = {
+    username: $user.val().trim(),
+    user_email: $useremail.val().trim(),
+    user_password: $userpassword.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+
+  if (!(user.username && user.user_email && user.user_password)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  
+
+  API.saveUser(user).then(function() {
+//if user already exsists- prompt them to update
+console.log('saved')
+window.location.href = "/user";
+window.localStorage.setItem("email", user.user_email)
+   
+    // refreshUsers();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  // $exampleText.val("");
+  // $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -96,4 +105,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $exampleList.on("click", ".delete", handleDeleteBtnClick);

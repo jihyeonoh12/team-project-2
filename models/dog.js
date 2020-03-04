@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Dog = sequelize.define("Dog", {
-    dog: {
+    dog_name: {
       type: DataTypes.TEXT,
       allowNull: false
     },
@@ -10,10 +10,17 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false
     },
-    user_id: {
-      type: DataTypes.UUID,
-      allowNull: false
-    },
+    // UserId: {
+    //   type: DataTypes.UUID,
+    //   references: {
+    //     model: 'User',
+    //     key: 'id',
+    //   },
+    //   onDelete: "CASCADE",
+    //   allowNull: false
+    // },
+  
+   
   });
 
   Dog.associate = function(models) {
@@ -22,9 +29,15 @@ module.exports = function(sequelize, DataTypes) {
     Dog.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: 'CASCADE'
     });
   };
 
   return Dog;
 };
+
+// {
+// 	"dog_name": "frufru",
+// 	"UserId": "19b32b41-ccb8-4dad-99bd-de56ce93797a"
+// }
