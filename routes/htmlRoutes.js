@@ -13,7 +13,11 @@ module.exports = function(app) {
   // Load example page and pass in an example by id
   app.get("/user", function(req, res) {
   
-    res.render(path.join(__dirname, "../views/example.handlebars"));
+    res.render(path.join(__dirname, "../views/profile.handlebars"));
+  });
+  app.get("/map", function(req, res) {
+  
+    res.render(path.join(__dirname, "../views/map.handlebars"));
   });
 
   // Render 404 page for any unmatched routes
