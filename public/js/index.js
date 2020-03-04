@@ -1,3 +1,4 @@
+
 // Get references to page elements
 var $user = $("#user_name");
 var $useremail = $("#user_email");
@@ -5,6 +6,16 @@ var $submitBtn = $("#submit");
 var $userpassword = $("#user_password");
 var loggedIn = false
 
+      window.localStorage.setItem("loggedIn", loggedIn)
+function loginCheck(){
+if( loggedIn) {
+  window.location.href = "/user";
+}
+else{
+  window.location.href = "/";
+}
+}
+loginCheck()
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveUser: function(newUser) {
@@ -74,18 +85,28 @@ var handleFormSubmit = function(event) {
   if (!(user.username && user.user_email && user.user_password)) {
     alert("You must enter an example text and description!");
     return;
-  }
+  };
+  var data= {email: user.user_email};
+  $.post("/api/users",data, function(res){
+   if(res === null ){
+    API.saveUser(user).then(function() {
+     var loggedIn = true
+         window.localStorage.setItem("loggedIn", loggedIn )
+         window.location.href = "/user";
 
-  
+     
+      
+      // window.localStorage.setItem("email", user.user_email)
 
-  API.saveUser(user).then(function() {
-//if user already exsists- prompt them to update
-console.log('saved')
-window.location.href = "/user";
-window.localStorage.setItem("email", user.user_email)
-   
-    // refreshUsers();
-  });
+          // refreshUsers();
+        });
+      
+   }else{alert('already a thang')}
+    console.log(res+ "this is res on index.js")
+    
+    })
+
+
 
   // $exampleText.val("");
   // $exampleDescription.val("");
@@ -106,3 +127,4 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
