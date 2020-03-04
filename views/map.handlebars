@@ -1,8 +1,18 @@
  <link rel="stylesheet" href="../../public/styles/map.css">
  
+
  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-6"></div>
+      <div class="col-sm-6">
+        </br>
+        <b>Address Lookup</b>
+        <div id="search">
+          <input class="searchbar form-control mr-sm-2" type="search" name="addr" value="" id="addr"
+            placeholder="Search" aria-label="Search" />
+          <button class="searchbtn btn btn-warning" type="button" onclick="addr_search();">Search</button>
+          <div id="results"></div>
+        </div>
+      </div>
       <div class="col-sm-6">
 
         <div>
@@ -24,3 +34,5 @@
       </div>
     </div>
   </div>
+
+  <script src="../public/js/map.js"></script>
