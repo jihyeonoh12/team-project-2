@@ -37,6 +37,7 @@ module.exports = function(app) {
       // We set the value to an array of the models we want to include in a left outer join
       // In this case, just db.Dog
       console.log(JSON.stringify(req.body )+"req.body")
+
       db.User.findOne({
         where: {
           user_email: req.body.email

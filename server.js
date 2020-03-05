@@ -29,7 +29,7 @@ require("./routes/doggo-api-routes")(app);
 require("./routes/htmlRoutes")(app);
 
   //turn to true if changing the model- turn to false if model doesnt need changes
-var syncOptions = { force: true};
+var syncOptions = { force: false};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

@@ -86,7 +86,7 @@ var handleFormSubmit = function(event) {
     user_street: $userpassword.val().trim(),
     user_city: $userpassword.val().trim()
   
-  };
+  }; 
 
   if (!(user.username && user.user_email && user.user_password && user.user_street && user.user_city)) {
     alert("Please fill out all fields");
