@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    favorite_activiy: {
+    favorite_activity: {
       type: DataTypes.TEXT,
       allowNull: false
     },
@@ -57,3 +57,11 @@ module.exports = function(sequelize, DataTypes) {
 // 	"dog_name": "frufru",
 // 	"UserId": "19b32b41-ccb8-4dad-99bd-de56ce93797a"
 // }
+
+
+// "dog_name": "dog",
+// "dog_breed": "doggo",
+// "dog_height": "dog",
+// "favorite_activity": "dog",
+// "dog_age": "dog",
+// "UserId": "80bfd7af-244c-4410-a92a-e3f9262b0c86"
