@@ -14,3 +14,22 @@
     color: #AA0000;
     text-decoration: underline
   }
+
+  .searchbar {
+    width: 70%;
+    display: inline;
+  }
+
+  .searchbtn {
+    width: 25%;
+    display: inline;
+  }
+
+  .col-sm-6{
+    padding: 0px;
+  }
+
+  .listBox {
+    padding: 20px;
+  }
+  
