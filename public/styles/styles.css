@@ -137,10 +137,10 @@ p {
 /* Jane added for navbar */
      body {
       width: 100%;
-      padding: 0;
-      margin: 0;
+     
       font-family: 'Raleway', sans-serif;
       font-family: 'Noto Sans', sans-serif;
+      background-color: white;
 
     }
 
@@ -167,4 +167,8 @@ p {
     button {
       border-color: #A58161;
       color: #A58161;
+    }
+
+    a {
+      margin-right: 10px;
     }

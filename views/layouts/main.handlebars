@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin="" />
-     <link rel="shortcut icon" type="image/x-icon" href="styles/icon.jpg" />
+  <link rel="shortcut icon" type="image/x-icon" href="styles/icon.jpg" />
   <!--main bootstrap css-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  
+
   <!--google font-->
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Raleway:500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Raleway:500,600,700&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="Pet Dating" charset="utf-8">
 
   <!--map-->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -50,17 +53,17 @@
 </html>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="Pet Dating" charset="utf-8">
+  
 
 </head> --}}
 
 <body>
-   <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar sticky-top">
     <a class="navbar-brand logo_title">Paw Finder</a>
     <form class="form-inline">
-      <button class="btn btn-outline-warning" type="button">Find Friend</button>
-      <button class="btn btn-outline-warning" type="button">Profile</button>
+      <a class="btn btn-light btn-outline-warning" type="button" href="/map">Map</a>
+      <a class="btn btn-light btn-outline-warning" type="button" href="/profile">Profile</a>
     </form>
   </nav>
   {{{body}}}
