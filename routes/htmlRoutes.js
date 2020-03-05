@@ -1,11 +1,12 @@
 var db = require("../models");
 var path = require("path");
 
+
 module.exports = function (app) {
   // Load index page
 
   // Serve static content for the app from the "public" directory in the application directory.
-  app.use(express.static("public"));
+ 
 
   app.get("/", function (req, res) {
     res.render(path.join(__dirname, "../views/index.handlebars"));
