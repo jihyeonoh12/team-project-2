@@ -18,7 +18,7 @@ module.exports = function (app) {
   // Load example page and pass in an example by id
   app.get("/user", function (req, res) {
 
-    res.render(path.join(__dirname, "../views/profile.handlebars"));
+    res.render(path.join(__dirname, "../views/dogfile.handlebars"));
   });
   app.get("/map", function (req, res) {
 
