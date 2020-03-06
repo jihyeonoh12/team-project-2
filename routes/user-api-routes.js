@@ -26,7 +26,7 @@ module.exports = function(app) {
         },
         include: [db.Dog]
       }).then(function(dbUser) {
-        console.log(dbUser)
+       
         res.json(dbUser); 
       });
     })
@@ -44,7 +44,7 @@ module.exports = function(app) {
         },
          
       }).then(function(dbUser) {
-        console.log(dbUser)
+       
         res.json(dbUser);
       });
     });
@@ -74,7 +74,7 @@ app.post("/api/user", function(req, res) {
   //if email already exsists then dont let create a profile. 
   db.User.create(req.body).then(function(dbUser) {
     res.json(dbUser);
-    console.log(dbUser)
+    
   })
 });
 

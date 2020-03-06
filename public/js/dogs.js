@@ -1,9 +1,11 @@
+
 var $submitBtn = $("#submit");
 var $dog = $("#dog_name")
 var $dogbreed = $("#dog_breed")
 var $dogheight = $("#dog_height")
 var $dogactivity = $("#dog_activity")
 var $dogage = $("#dog_age")
+var userId
 // 0cc8ed26-ca50-4d22-bf4d-e3b2feffc01c
 $(document).ready(function () {
 
@@ -22,34 +24,81 @@ $(document).ready(function () {
                 url: "api/dog",
                 data: JSON.stringify(newDog)
             });
+ 
 
-
-        },
-        getDogs: function () {
-            return $.ajax({
-                url: "api/dog",
-                type: "GET"
-            });
-        },
+        }
+        // getDogs: function () {
+        //     return $.ajax({
+        //         url: "api/dog",
+        //         type: "GET"
+        //     });
+        // },
     }
 
+var getADog = function(){
+    $.post("/api/users", data, function (res) {
 
-    var getCards = function () {
-        API.getDogs().then(function (data) {
+        console.log(JSON.stringify(res.id) + "UserID")
+        userId = JSON.stringify(res.id)
 
-            for (i = 0; i < data.length; i++)
-            console.log("hiiii")
+    }).then(function (res) {
 
-        })
-    }
+console.log(res)
 
-    getCards()
+    })
+}
+   
+
+//get all dogs where UserId = 
+var getYours = function() {
+
+    console.log("get yours is runnings")
+
+    $.post("/api/users", data, function (res) {
+
+        console.log(JSON.stringify(res.id) + "UserID")
+        userId = JSON.stringify(res.id)
+        userId = JSON.parse(userId)
+
+
+    }).then(function(){
+        $.get(`/api/dog/${userId}`, function(response){
+            for (i = 0; i < response.length; i++){
+                //dog api call here to get the breed to set the image for the card 
+                console.log(response[i])
+
+                $('#cardsHere').append(`<div class="card m-2 w-100" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title display-4">${response[i].dog_name}</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="card-text lead">Breed: ${response[i].dog_breed}</p>
+                      <p class="card-text lead">Size: ${response[i].dog_height}</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="card-text lead">Age: ${response[i].dog_age}</p>
+                      <p class="card-text lead">Favorite Activity: ${response[i].favorite_activity}</p>
+                    </div>
+                  </div>
+                  <div class="row justify-content-end id="${response[i].id}">
+                    <button type="button" class="btn btn-warning btn-sm" id="delete" >Delete</button>
+                  </div>
+                </div>`)
+
+
+            }
+
+        } )
+    })
+
+   
+}
+
+
 
     var handleFormSubmit = function (event) {
         event.preventDefault();
-
-
-        var userId
 
         $.post("/api/users", data, function (res) {
 
@@ -74,11 +123,7 @@ $(document).ready(function () {
 
 
             $.post("/api/dog", dog, function (result) {
-
-                API.saveDog(dog).then(function () {
-                    console.log(dog + "inside api call to insert dog")
-
-                })
+                location.reload()
 
             }
             )
@@ -88,8 +133,26 @@ $(document).ready(function () {
     };
 
 
+  
+
+
 
     $submitBtn.on("click", handleFormSubmit);
+
+    $(document).on("click", "#delete", function(){
+      
+       
+        var parent = $(this).parent().attr("id")
+       
+        console.log(parent)
+    })
+ 
+
+
+    var init = function(){
+        getYours()
+    }
+    init()
 
 
 

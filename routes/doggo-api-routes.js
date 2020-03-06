@@ -6,34 +6,32 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the dogs
-  app.get("/api/dog", function(req, res) {
-    // var query = {};
-    // if (req.query.user_id) {
-    //   query.UserId = req.query.user_id;
-    // }
+  // GET route for getting all of the dogs -- put on maps
+  app.get("/api/dogs", function(req, res) {
 
     db.Dog.findAll({
-      where: query,
-      include: [db.User]
     }).then(function(dbDog) {
+      console.log(dbDog)
       res.json(dbDog);
-     
     });
   });
 
-  // Get route for retrieving a single post
+  // Get route for retrieving a single Dog
   app.get("/api/dog/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
-    db.Dog.findOne({
+   
+
+
+    db.Dog.findAll({
       where: {
-        id: req.params.id
+        UserId: req.params.id
       },
       include: [db.User]
     }).then(function(dbDog) {
       res.json(dbDog);
+      console.log(`this is dbDog ${dbDog}`)
     });
   });
 
