@@ -24,7 +24,7 @@ $(document).ready(function () {
                 url: "api/dog",
                 data: JSON.stringify(newDog)
             });
- 
+
 
         }
         // getDogs: function () {
@@ -35,39 +35,47 @@ $(document).ready(function () {
         // },
     }
 
-var getADog = function(){
-    $.post("/api/users", data, function (res) {
+    var getADog = function () {
+        $.post("/api/users", data, function (res) {
 
-        console.log(JSON.stringify(res.id) + "UserID")
-        userId = JSON.stringify(res.id)
+            console.log(JSON.stringify(res.id) + "UserID")
+            userId = JSON.stringify(res.id)
 
-    }).then(function (res) {
+        }).then(function (res) {
 
-console.log(res)
+            console.log(res)
 
-    })
-}
-   
-
-//get all dogs where UserId = 
-var getYours = function() {
-
-    console.log("get yours is runnings")
-
-    $.post("/api/users", data, function (res) {
-
-        console.log(JSON.stringify(res.id) + "UserID")
-        userId = JSON.stringify(res.id)
-        userId = JSON.parse(userId)
+        })
+    }
 
 
-    }).then(function(){
-        $.get(`/api/dog/${userId}`, function(response){
-            for (i = 0; i < response.length; i++){
-                //dog api call here to get the breed to set the image for the card 
-                console.log(response[i])
+    //get all dogs where UserId = 
+    var getYours = function () {
 
-                $('#cardsHere').append(`<div class="card m-2 w-100" style="width: 18rem;">
+        console.log("get yours is runnings")
+
+        $.post("/api/users", data, function (res) {
+
+            console.log(JSON.stringify(res.id) + "UserID")
+            userId = JSON.stringify(res.id)
+            userId = JSON.parse(userId)
+
+
+        }).then(function () {
+            $.get(`/api/dog/${userId}`, function (response) {
+
+                if (response.length === 0) {
+                    $('#cardsHere').append(`<div class="row">
+                    <div class="display-4 mx-auto ">Your Pets Go Here</div>
+                    </div>'`)
+                } else {
+
+                    for (i = 0; i < response.length; i++) {
+                        //dog api call here to get the breed to set the image for the card 
+
+
+
+                        $('#cardsHere').append(`<div class="card m-2 w-100" style="width: 18rem;">
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title display-4">${response[i].dog_name}</h5>
@@ -81,19 +89,21 @@ var getYours = function() {
                       <p class="card-text lead">Favorite Activity: ${response[i].favorite_activity}</p>
                     </div>
                   </div>
-                  <div class="row justify-content-end id="${response[i].id}">
+                  <div class="row justify-content-end" id="${response[i].id}">
                     <button type="button" class="btn btn-warning btn-sm" id="delete" >Delete</button>
                   </div>
                 </div>`)
 
 
-            }
+                    }
+                }
 
-        } )
-    })
 
-   
-}
+            })
+        })
+
+
+    }
 
 
 
@@ -133,23 +143,40 @@ var getYours = function() {
     };
 
 
-  
+
 
 
 
     $submitBtn.on("click", handleFormSubmit);
 
-    $(document).on("click", "#delete", function(){
-      
-       
-        var parent = $(this).parent().attr("id")
-       
-        console.log(parent)
+    $(document).on("click", "#delete", function () {
+
+        console.log($(this).parent()[0].id)
+        deleteDog($(this).parent()[0].id)
+
+
     })
- 
+
+    $(document).on("click", "#addDog", function () {
+
+        $('#formShow').attr("style", "display: show")
+
+    })
+
+    function deleteDog(id) {
+        $.ajax({
+            method: "DELETE",
+            url: `/api/dog/${id}`
+        })
+            .then(function () {
+                getYours()
+                location.reload()
+
+            });
+    }
 
 
-    var init = function(){
+    var init = function () {
         getYours()
     }
     init()

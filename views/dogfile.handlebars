@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <button type="button" class="btn btn-warning btn-lg btn-block mt-4 ">Add Pawtner</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block mt-4 " id="addDog">Add Pawtner</button>
       </div>
-      <div class="jumbotron w-100">
+      <div class="jumbotron w-100" id="formShow" style="display: none;">
         <h1 class="display-4">New Pawl!</h1>
         <form class="clearfix mb-4">
           <div class="form-group">
@@ -34,11 +34,14 @@
         </form>
 
       </div>
-      <div class="jumbotron w-100">
+      <div class="jumbotron w-100" >
 
         <div id="cardsHere"></div>
-
-        {{!-- <div class="card m-2 w-100" style="width: 18rem;">
+        {{!-- <div class="row ">
+        <div class="display-4 mx-auto ">Your Pets Go Here</div>
+        </div> --}}
+{{!-- 
+        <div class="card m-2 w-100" style="width: 18rem;">
           <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">Name:</h5>
