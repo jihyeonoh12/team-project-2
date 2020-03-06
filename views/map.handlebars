@@ -1,31 +1,45 @@
-
 <link rel="stylesheet" type="text/css" href="/styles/map.css">
- 
- <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 listBox">
-        </br>
 
-        <div>
-          <div type="text" name="lat" id="lat" size=12 value=""></div>
-          <div type="text" name="lon" id="lon" size=12 value=""></div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 listBox">
+      </br>
 
-        <b>Address Lookup</b>
-        <div id="search">
-          <input class="searchbar form-control mr-sm-2" type="search" name="addr" value="" id="addr"
-            placeholder="Search" aria-label="Search" />
-          <button class="searchbtn btn btn-warning" type="button" onclick="addr_search();">Search</button>
-          <div id="results"></div>
-        </div>
+      <div>
+        <div type="text" name="lat" id="lat" size=12 value=""></div>
+        <div type="text" name="lon" id="lon" size=12 value=""></div>
       </div>
-      <div class="col-sm-6">
 
-
-        <div id="map"></div>
-
+      <b>Address Lookup</b>
+      <div id="search">
+        <input class="searchbar form-control mr-sm-2" type="search" name="addr" value="" id="addr" placeholder="Search"
+          aria-label="Search" />
+        <button class="searchbtn btn btn-warning" type="button" onclick="addr_search();">Search</button>
+        <div id="results"></div>
       </div>
+
+
+      <ul>
+        {{#each Dog}}
+        <li>
+          <p>Name: {{dog_name}}</p>
+          <p>Breed: {{dog_breed}}</p>
+          <p>Age: {{dog_age}}</p>
+          <p>Height: {{dog_height}}</p>
+          <p>Favorite Activity: {{dog_activity}}</p>
+        </li>
+        {{/each}}
+      </ul>
+
+
+    </div>
+    <div class="col-sm-6">
+
+
+      <div id="map"></div>
+
     </div>
   </div>
+</div>
 
-  <script rel="script" type="text/javascript" src="/js/map.js"></script>
+<script rel="script" type="text/javascript" src="/js/map.js"></script>
