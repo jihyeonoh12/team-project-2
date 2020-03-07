@@ -1,0 +1,202 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #DDD;
+  background-image: url("background-2.jpg");
+  background-size: cover;
+}
+
+.jumbotron-details {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: lightskyblue;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.jumbotron {
+  color: lightskyblue;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+img {
+  max-width: 100%;
+}
+
+.buttons button {
+  background-color: #046380;
+  color: #FFF;
+  border: none;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 2px 2px 0 #034154;
+  margin-right: 5px;
+  transition: opacity .4s ease-out, transform .4s ease-out, visibility .4s ease-out;
+  position: relative;
+  top: -10px;
+}
+
+.buttons button:hover {
+  background-color: #034F66;
+}
+
+.buttons button:active {
+  background-color: #034154;
+  box-shadow: none;
+  position: relative;
+  top: -8px;
+  left: 2px;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  padding: 30px 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.4em;
+  font-weight: bold;
+  color: white;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 2em;
+  font-weight: normal;
+  color: orange;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.page-wrap {
+  max-width: 1024px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.buttons {
+  position: relative;
+  z-index: 10;
+}
+
+.pet {
+  background-color: beige;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.pet h2 {
+  font-weight: normal;
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.pet h2 .species {
+  font-size: 1.45rem;
+  color: #999;
+}
+
+.headline-bar {
+  margin: 0;
+  background-color: #CCC;
+  padding: 8px 15px;
+  font-weight: bold;
+}
+
+.favorite-foods {
+  background-color: #EFEFEF;
+  padding: 0;
+  margin: 0;
+}
+
+.favorite-foods li {
+  list-style: none;
+  border-bottom: 1px dotted #999;
+  padding: 8px 15px;
+  font-size: .85rem;
+}
+
+.photo-column {
+  width: 35%;
+  float: left;
+}
+
+.info-column {
+  width: 65%;
+  box-sizing: border-box;
+  padding-left: 20px;
+  float: left;
+}
+
+@media (max-width: 760px) {
+  .photo-column,
+  .info-column {
+    width: auto;
+    float: none;
+    padding: 0;
+  }
+}
+
+/* Jane added for navbar */
+     body {
+      width: 100%;
+     
+      font-family: 'Raleway', sans-serif;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: white;
+
+    }
+
+    nav {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 300;
+      color: #A58161;
+      background-color: #A58161;
+
+    }
+
+    .navbar {
+      background-color: white;
+      box-shadow: 0px 5px 17px rgba(0, 0, 0, 0.0836429);
+    }
+
+    .logo_title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      color: #A58161;
+      font-size: 1.5em;
+    }
+
+    button {
+      border-color: #A58161;
+      color: #A58161;
+    }
+
+    a {
+      margin-right: 10px;
+    }
