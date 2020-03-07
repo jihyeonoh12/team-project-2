@@ -10,6 +10,7 @@ module.exports = function(app) {
   app.get("/api/dogs", function(req, res) {
 
     db.Dog.findAll({
+      include: [db.User]
     }).then(function(dbDog) {
       console.log(dbDog)
       res.json(dbDog);
