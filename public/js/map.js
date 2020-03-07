@@ -98,7 +98,7 @@ function addr_search_with_users(users, usersToDogs) {
     }
   }
 
-$(document).ready(function () {
+
 
 })
   
@@ -122,7 +122,7 @@ var startlat = 33.68569690;
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiamloeWVvbm9oMTIiLCJhIjoiY2s3NncyZnVyMDFpMDNmdGZmazI3YXM5NCJ9.gCrZ981lIf5ga3Anwm2LvQ'
+    accessToken: 'pk.eyJ1IjoiamloeWVvbm9oMTIiLCJhIjoiY2s3aHd0a2VhMDdkNjNobG4zeWo1OWZraCJ9.4nRTTgLGLepHZKSuMh-kqA'
   }).addTo(map);
 
   //------marker-------//
