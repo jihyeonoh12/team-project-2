@@ -41,7 +41,9 @@ $(document).ready(function () {
 
   })
 
-  var startlat = 33.68569690;
+})
+  
+var startlat = 33.68569690;
   var startlon = -117.82598190;
 
   var options = {
@@ -130,8 +132,5 @@ $(document).ready(function () {
     xmlhttp.send();
   }
 
-
-
-})
 
 
