@@ -100,7 +100,9 @@ function addr_search_with_users(users, usersToDogs) {
 
 $(document).ready(function () {
 
-  var startlat = 33.68569690;
+})
+  
+var startlat = 33.68569690;
   var startlon = -117.82598190;
 
   var options = {
@@ -196,9 +198,3 @@ $(document).ready(function () {
 
      
 
-      console.log(response[i].User)
-    }
-
-  })
-
-})
