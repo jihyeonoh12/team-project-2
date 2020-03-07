@@ -32,4 +32,27 @@
   .listBox {
     padding: 20px;
   }
+
+  .display-4 {
+    font-size: 2em;
+    color: #A58161;
+
+  }
+
+  .card-body {
+    padding: 10px 20px;
+    
+  }
+  
+  .card {
+    margin-top: 20px;
+    padding: 0px;
+  }
+
+  .card-text {
+    font-size: 1em;
+  }
+
+ 
+
   
