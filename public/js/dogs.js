@@ -5,6 +5,8 @@ var $dogbreed = $("#dog_breed")
 var $dogheight = $("#dog_height")
 var $dogactivity = $("#dog_activity")
 var $dogage = $("#dog_age")
+//var $doglocation = $("#dog_location")
+//var $doggender = $("#dog_gender")
 var userId
 // 0cc8ed26-ca50-4d22-bf4d-e3b2feffc01c
 $(document).ready(function () {
@@ -66,8 +68,8 @@ $(document).ready(function () {
 
                 if (response.length === 0) {
                     $('#cardsHere').append(`<div class="row">
-                    <div class="display-4 mx-auto ">Your Pets Go Here</div>
-                    </div>'`)
+                    <div class="display-4 mx-auto">To See Them Here</div>
+                    </div>`)
                 } else {
 
                     for (i = 0; i < response.length; i++) {
@@ -81,12 +83,12 @@ $(document).ready(function () {
                   <h5 class="card-title display-4">${response[i].dog_name}</h5>
                   <div class="row">
                     <div class="col-6">
-                      <p class="card-text lead">Breed: ${response[i].dog_breed}</p>
-                      <p class="card-text lead">Size: ${response[i].dog_height}</p>
+                      <p class="card-text lead">BREED: ${response[i].dog_breed}</p>
+                      <p class="card-text lead">SIZE: ${response[i].dog_height}</p>
                     </div>
                     <div class="col-6">
-                      <p class="card-text lead">Age: ${response[i].dog_age}</p>
-                      <p class="card-text lead">Favorite Activity: ${response[i].favorite_activity}</p>
+                      <p class="card-text lead">AGE: ${response[i].dog_age}</p>
+                      <p class="card-text lead">FAVORITE ACTIVITY: ${response[i].favorite_activity}</p>
                     </div>
                   </div>
                   <div class="row justify-content-end" id="${response[i].id}">
@@ -123,10 +125,12 @@ $(document).ready(function () {
                 dog_height: $dogheight.val().trim(),
                 favorite_activity: $dogactivity.val().trim(),
                 dog_age: $dogage.val().trim(),
+                //dog_gender: $doggender.val().trim(),
+                //dog_location: $doglocation.val().trim(),
                 UserId: JSON.parse(userId)
             };
 
-            if (!(dog.dog_name && dog.dog_breed && dog.dog_height && dog.favorite_activity && dog.dog_age)) {
+            if (!(dog.dog_name && dog.dog_breed && dog.dog_height && dog.favorite_activity && dog.dog_age /*&& dog.dog_gender && dog.dog_location*/)) {
                 alert("Please fill out all fields");
                 return;
             };

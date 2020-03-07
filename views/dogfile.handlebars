@@ -2,31 +2,39 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <button type="button" class="btn btn-warning btn-lg btn-block mt-4 " id="addDog">Add Pawtner</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block mt-4 " id="addDog" style="font-weight: bold; color:lightskyblue; text-shadow: -.5px -.5px 0 #000, .5px -.5px 0 #000, -.5px .5px 0 #000, .5px .5px 0 #000;">ADD YOUR PAWTNERS</button>
       </div>
       <div class="jumbotron w-100" id="formShow" style="display: none;">
-        <h1 class="display-4">New Pawl!</h1>
+        <h2 class="display-4">New Pawtner!</h2>
         <form class="clearfix mb-4">
           <div class="form-group">
             <label for="dog_name"> Name</label>
             <input type="text" id="dog_name" class="form-control" aria-describedby="example-text" placeholder="">
           </div>
           <div class="form-group">
-            <label for="dog_breed">breed</label>
+            <label for="dog_breed">Breed</label>
             <input type="text" id="dog_breed" class="form-control" aria-describedby="example-text" placeholder="">
           </div>
+          <!--<div class="form-group">
+            <label for="dog_gender">Gender</label>
+            <input type="text" id="dog_gender" class="form-control" aria-describedby="example-text" placeholder="">
+          </div>-->
           <div class="form-group">
-            <label for="dog_height">height</label>
+            <label for="dog_height">Size</label>
             <input type="text" id="dog_height" class="form-control" aria-describedby="example-text" placeholder="">
           </div>
           <div class="form-group">
-            <label for="dog_activity">activity</label>
+            <label for="dog_activity">Activity</label>
             <input type="text" id="dog_activity" class="form-control" aria-describedby="example-text" placeholder="">
           </div>
           <div class="form-group">
-            <label for="dog_age">age</label>
+            <label for="dog_age">Age</label>
             <input type="text" id="dog_age" class="form-control" aria-describedby="example-text" placeholder="">
           </div>
+          <!--<div class="form-group">
+            <label for="dog_location">Location</label>
+            <input type="text" id="dog_location" class="form-control" aria-describedby="example-text" placeholder="">
+          </div>-->
           <a><button id="submit" class="btn btn-primary float-right">Submit</button></a>
           <div><small id="small"></small></div>
           <a href="" id="goBack">Go Back</a>
@@ -34,7 +42,7 @@
         </form>
 
       </div>
-      <div class="jumbotron w-100" >
+      <div class="jumbotron jumbotron-details w-100">
 
         <div id="cardsHere"></div>
         {{!-- <div class="row ">
